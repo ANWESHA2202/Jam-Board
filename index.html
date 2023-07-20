@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Board</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head>
+
+<body>
+    <div class="options-cont">
+        <i class="fa-solid fa-bars fa-beat"></i>
+
+    </div>
+    <div class="tools-cont scale-tools">
+        <img src="public/icons/pencil.png" alt="pencil" class="pencil-tool">
+        <img src="public/icons/eraser.png" alt="eraser" class="eraser-tool">
+        <img src="public/icons/download.png" alt="download" class="download-tool">
+        <img src="public/icons/upload.png" alt="upload" class="upload-tool">
+        <img src="public/icons/sticky-note.png" alt="sticky-note" class="sticky-note-tool">
+        <img src="public/icons/undo.png" alt="undo" class="undo-tool">
+        <img src="public/icons/redo.png" alt="redo" class="redo-tool">
+    </div>
+
+    <div class="pencil-tool-cont">
+        <div class="pencil-width-cont">
+            <input type="range" name="" id="" min="2" max="10" value="3">
+        </div>
+        <div class="pencil-color-cont">
+            <div class="pencil-color black"></div>
+            <div class="pencil-color blue"></div>
+            <div class="pencil-color red"></div>
+            <div class="pencil-color green"></div>
+            <div class="pencil-color yellow"></div>
+            <div class="pencil-color orange"></div>
+            <div class="pencil-color purple"></div>
+            <div class="pencil-color pink"></div>
+        </div>
+    </div>
+    <div class="eraser-tool-cont">
+        <input type="range" name="" id="" min="2" max="10" value="3">
+    </div>
+
+
+    <canvas></canvas>
+
+
+    <!-- <div class="sticky-cont"></div> -->
+    <script src="js/tools.js"></script>
+</body>
+
+</html>
