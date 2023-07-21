@@ -6,11 +6,24 @@ let pencilTool = document.querySelector('.pencil-tool');
 let eraserTool = document.querySelector('.eraser-tool');
 let stickyTool = document.querySelector('.sticky-note-tool');
 let uploadTool = document.querySelector('.upload-tool');
+let pencilColors = document.querySelectorAll('.pencil-color');
+let activeTool = document.querySelector('.active-tool');
 
 
 let optionsFlag = true;
 let pencilFlag = false;
 let eraserFlag = false;
+let colorFlag = {
+    black: true,
+    blue: false,
+    red: false,
+    green: false,
+    yellow: false,
+    orange: false,
+    purple: false,
+    pink: false,
+}
+pencilColors[0].style.border = '3px solid white'
 
 
 optionsCont.addEventListener('click', (e) => {
@@ -43,9 +56,12 @@ pencilTool.addEventListener('click', (e) => {
     pencilFlag = !pencilFlag;
     if (pencilFlag) {
         eraserFlag = false;
+        eraserTool.classList.remove('active-tool');
+        pencilTool.classList.add('active-tool');
         eraserToolCont.style.display = 'none';
         pencilToolCont.style.display = 'block';
     } else {
+        pencilTool.classList.remove('active-tool');
         pencilToolCont.style.display = 'none';
     }
 })
@@ -54,9 +70,13 @@ eraserTool.addEventListener('click', (e) => {
     eraserFlag = !eraserFlag;
     if (eraserFlag) {
         pencilFlag = false;
+        pencilTool.classList.remove('active-tool');
+        eraserTool.classList.add('active-tool');
         pencilToolCont.style.display = 'none';
         eraserToolCont.style.display = 'flex';
     } else {
+        eraserTool.classList.remove('active-tool');
+        pencilTool.classList.add('active-tool');
         eraserToolCont.style.display = 'none';
     }
 })
@@ -82,6 +102,32 @@ uploadTool.addEventListener('click', (e) => {
     });
 
 
+})
+
+pencilColors.forEach((pencilColor) => {
+    pencilColor.addEventListener('click', (e) => {
+        console.log(e.target.classList[1]);
+        let color = e.target.classList[1];
+        let colorCode = document.querySelector(`.${color}`);
+        colorFlag[color] = !colorFlag[color];
+        if (colorFlag[color]) {
+            console.log('here');
+            colorCode.style.border = '3px solid white'
+            colorCode.style.boxShadow = '0px 0px 10px 0px black'
+        } else {
+            colorCode.style.border = 'none'
+            colorCode.style.boxShadow = 'none'
+        }
+
+        for (let restColor in colorFlag) {
+            let restColorCode = document.querySelector(`.${restColor}`);
+            if (restColor !== color) {
+                colorFlag[restColor] = false;
+                restColorCode.style.border = 'none'
+                colorCode.style.boxShadow = 'none'
+            }
+        }
+    });
 })
 
 function generateSticky(stickyTempHtml) {
