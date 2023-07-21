@@ -1,0 +1,4 @@
+# .gitignore for node projects
+/node_modules
+npm-debug.log
+```
